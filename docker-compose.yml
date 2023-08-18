@@ -1,6 +1,13 @@
 version: '3'
 
 services:
+  unit:
+    build:
+      dockerfile: ./build/unit/Dockerfile
+      context: .
+    volumes:
+      - .:/app/
+
 ###> doctrine/doctrine-bundle ###
   database:
     image: postgres:${POSTGRES_VERSION:-15}-alpine
